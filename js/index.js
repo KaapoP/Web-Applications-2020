@@ -211,7 +211,13 @@
 
       //add every cell an onclick attribute and its value are addMark(this.id and timeLeft()).
       for (item of cellArray) {
-        item.setAttribute("onclick", "addMark(this.id); timeLeft()");
+        //item.setAttribute("onclick", "addMark(this.id); timeLeft()");
+
+        console.log(item.id);
+        item.addEventListener("click", event => {
+            addMark(event.target.id);
+            timeLeft();
+        });
       }
 
       //make progress bar dynamic and connect to game
